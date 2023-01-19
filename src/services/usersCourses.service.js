@@ -1,13 +1,13 @@
 const UsersCourses = require("../models/usersCourses.model");
 
 class UsersCoursesServices {
-  static async create(id, field) {
+  static async create(relationData) {
     try {
-      const result = await UsersCourses.create(field, {userId: { id }});
+      const result = await UsersCourses.create(relationData);
       return result;
     } catch (error) {
       throw error;
-    }
+    } 
   }
 }
 

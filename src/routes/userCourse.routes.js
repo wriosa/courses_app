@@ -3,6 +3,6 @@ const { addCourse } = require("../controllers/usersCourses.controller");
 const router = Router();
 
 
-router.post('/usercourse/:id', addCourse);
+router.post('/usercourse/:userId', addCourse);
 
 module.exports = router; 

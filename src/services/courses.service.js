@@ -37,14 +37,14 @@ class CoursesServices {
         // attributes:{
         //     exclude:["password"],
         // },
-        include: {
-          model: Categories,
-          as: "category",
-          attributes: ["name"],
-          // model: Videos,
-          // as: "titles",
-          // attributes: ["title"],
-        },
+        include: [
+          {
+            model: Categories,
+            as: "category",
+            attributes: ["name"],
+          },
+          { model: Videos, as: "titles", attributes: ["title"] },
+        ],
       });
       return result;
     } catch (error) {

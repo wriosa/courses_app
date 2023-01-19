@@ -1,17 +1,18 @@
-const UsersCoursesServices = require('../services/usersCourses.service')
-
+const UsersCoursesServices = require("../services/usersCourses.service");
 
 const addCourse = async (req, res) => {
   try {
-    const { id } = req.params;
-    const field = req.body;
-    const result = await UsersCoursesServices.create(id, field);
+    const { userId } = req.params;
+    const { courseId } = req.body;
+    console.log(courseId);
+    const relation = { userId, courseId };
+    const result = await UsersCoursesServices.create(relation);
     res.json(result);
   } catch (error) {
-    res.status(400).json(error.message); 
+    res.status(400).json(error.message);
   }
 };
 
 module.exports = {
-  addCourse
-}
+  addCourse,
+};
